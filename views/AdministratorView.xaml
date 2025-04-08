@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="ProjekatA.views.AdministratorView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression.blend/2008"
+    xmlns:local="clr-namespace:ProjekatA.views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Administrator"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid Margin="10,0,10,0">
+        <DataGrid
+            Name="dgAdministratori"
+            AutoGenerateColumns="False"
+            Background="{DynamicResource Pozadina2Brush}"
+            BorderBrush="Transparent"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            HorizontalScrollBarVisibility="Auto"
+            ItemsSource="{Binding Administratori}"
+            RowHeaderWidth="0"
+            SelectedItem="{Binding SelectedAdministrator, Mode=TwoWay}"
+            VerticalScrollBarVisibility="Auto">
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{DynamicResource Pozadina1Brush}" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Pozadina1Brush}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Background" Value="{DynamicResource Pozadina2Brush}" />
+                    <Setter Property="Foreground" Value="{DynamicResource TekstBrush}" />
+                </Style>
+
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="{DynamicResource Pozadina2Brush}" />
+                    <Setter Property="Foreground" Value="{DynamicResource TekstBrush}" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="100"
+                    Binding="{Binding KorisnickoIme}"
+                    Header="{DynamicResource KorisnickoIme}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="{DynamicResource TekstBrush}" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Lokacija}"
+                    Header="{DynamicResource Adresa}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="{DynamicResource TekstBrush}" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <ContextMenu.Resources>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Background" Value="{DynamicResource Pozadina2Brush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource TekstBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource RuboviBrush}" />
+                            <Setter Property="BorderThickness" Value="1" />
+                        </Style>
+                    </ContextMenu.Resources>
+
+                    <MenuItem Command="{Binding KreirajAdministratorCommand}" Header="{DynamicResource Create}" />
+                    <MenuItem
+                        Command="{Binding IzmjeniAdministratorCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}"
+                        Header="{DynamicResource Update}" />
+                    <MenuItem
+                        Command="{Binding ObrisiAdministratorCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=ContextMenu}, Path=PlacementTarget.SelectedItem}"
+                        Header="{DynamicResource Delete}" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+
+        </DataGrid>
+    </Grid>
+</Page>

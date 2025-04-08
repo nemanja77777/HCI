@@ -1,0 +1,358 @@
+﻿<Window
+    x:Class="ProjekatA.creates.PDFCreate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="PDF Forma"
+    Width="400"
+    Height="Auto"
+    Background="{DynamicResource Pozadina1Brush}"
+    MouseDown="TopPanel_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Grid>
+        <Grid
+            Name="TopPanel"
+            Height="40"
+            VerticalAlignment="Top"
+            Background="{DynamicResource Pozadina2Brush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Name="TitleTextBlock"
+                Grid.Column="0"
+                Margin="10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Foreground="{DynamicResource TekstBrush}"
+                Text="PDF" />
+
+            <StackPanel
+                Name="TopPanelStackPanel"
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Name="MinimizeButton"
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MinimizeButton_Click"
+                    Content="_"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Name="MaximizeButton"
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MaximizeButton_Click"
+                    Content="□"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Name="CloseButton"
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="CloseButton_Click"
+                    Content="X"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Margin="20,40,20,20" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <!--  Sekcija: Opšti podaci  -->
+                <StackPanel>
+                    <TextBlock
+                        Name="GeneralDataTextBlock"
+                        Margin="0,0,0,10"
+                        FontWeight="Bold"
+                        Foreground="{DynamicResource TekstBrush}"
+                        Text="{DynamicResource OpstiPodaci}" />
+
+                    <Label
+                        Name="LabelBrojPregleda"
+                        Margin="0,0,0,5"
+                        Content="{DynamicResource BrojTehnickogPregleda}"
+                        Foreground="{DynamicResource TekstBrush}" />
+                    <TextBox
+                        Name="TextBoxBrojPregleda"
+                        Height="30"
+                        Margin="0,0,30,10"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Pozadina1Brush}"
+                        BorderBrush="{DynamicResource RuboviBrush}"
+                        Foreground="{DynamicResource TekstBrush}" />
+
+                    <Label
+                        Name="LabelBrojSasije"
+                        Margin="0,0,0,5"
+                        Content="{DynamicResource BrojSasije}"
+                        Foreground="{DynamicResource TekstBrush}" />
+                    <TextBox
+                        Name="TextBoxBrojSasije"
+                        Height="30"
+                        Margin="0,0,30,10"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Pozadina1Brush}"
+                        BorderBrush="{DynamicResource RuboviBrush}"
+                        Foreground="{DynamicResource TekstBrush}" />
+
+                    <Label
+                        Name="LabelDatumPregleda"
+                        Margin="0,0,0,5"
+                        Content="{DynamicResource DatumPregleda}"
+                        Foreground="{DynamicResource TekstBrush}" />
+                    <DatePicker
+                        Name="DatePickerDatumPregleda"
+                        Height="30"
+                        Margin="0,0,30,10"
+                        VerticalContentAlignment="Center"
+                        Background="{DynamicResource Pozadina1Brush}"
+                        BorderBrush="{DynamicResource RuboviBrush}"
+                        Foreground="{DynamicResource RuboviBrush}" />
+                </StackPanel>
+
+
+                <!--  Sekcija: Zatezni uređaji  -->
+                <TextBlock
+                    Name="TextBlockZatezniUredaji"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource ZatezniUredjaji}" />
+                <CheckBox
+                    Name="CheckBoxZatezniUredaji"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource UpravljackiZatezni}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxPojas"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource Pojas}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Klimatizacija  -->
+                <TextBlock
+                    Name="TextBlockKlimatizacija"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource Klimatizacija}" />
+                <CheckBox
+                    Name="CheckBoxKlimatizacija"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource KlimatizacijaFunkcionise}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxGrejanje"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource GrejanjeFunkcionise}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Električni sistem  -->
+                <TextBlock
+                    Name="TextBlockElektricniSistem"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource ElektricniSistem}" />
+                <CheckBox
+                    Name="CheckBoxBaterija"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource BaterijaU}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxAlternator"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource AlternatorIspravan}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxOsvetljenje"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource OsvjetljenjeInterijera}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Vazdušni filter  -->
+                <TextBlock
+                    Name="TextBlockVazdusniFilter"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource VazdusniFilter}" />
+                <CheckBox
+                    Name="CheckBoxVazdusniFilter"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource VazdusniFilterCist}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Ispravnost brisača i prskalica  -->
+                <TextBlock
+                    Name="TextBlockBrisaci"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource IspravnostBrisaca}" />
+                <CheckBox
+                    Name="CheckBoxBrisaci"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource BrisaciU}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxPrskalica"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource Prskalice}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Provera izduvnog sistema  -->
+                <TextBlock
+                    Name="TextBlockIzduvniSistem"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource ProvjeraIzduvnogSistema}" />
+                <CheckBox
+                    Name="CheckBoxIzduvniSistem"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource IzduvniSistem}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxIzduvniGasovi"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource IzduvniGasovi}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Kočioni sistem  -->
+                <TextBlock
+                    Name="TextBlockKocioniSistem"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource KocioniSistem}" />
+                <CheckBox
+                    Name="CheckBoxKocioniSistem"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource KocioniSistemU}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxKocionePlocice"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource KocionePlocice}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Pneumatici  -->
+                <TextBlock
+                    Name="TextBlockPneumatici"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource Pneumaticu}" />
+                <CheckBox
+                    Name="CheckBoxPneumaticiDubina"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource PneumaticiImaju}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxPneumaticiOsteceni"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource PneumaticiNisu}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Osvetljenje i signalizacija  -->
+                <TextBlock
+                    Name="TextBlockOsvetljenje"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource Osvjetljenje}" />
+                <CheckBox
+                    Name="CheckBoxSvetlosneFunkcije"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource SveSvjetlosne}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxMigavci"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource Migavci}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Sigurnosni sistemi  -->
+                <TextBlock
+                    Name="TextBlockSigurnosniSistemi"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource SigurnosniSistemi}" />
+                <CheckBox
+                    Name="CheckBoxAirbag"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource Airbegovi}"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <CheckBox
+                    Name="CheckBoxABS"
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource ABS}"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <!--  Sekcija: Vrsta goriva  -->
+                <TextBlock
+                    Name="TextBlockVrstaGoriva"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource VrstaGoriva}" />
+                <ComboBox
+                    Name="ComboBoxVrstaGoriva"
+                    Margin="0,0,30,10"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    Foreground="{DynamicResource RuboviBrush}"
+                    SelectedIndex="0">
+                    <ComboBoxItem Content="{DynamicResource Benzin}" />
+                    <ComboBoxItem Content="{DynamicResource Dizel}" />
+                    <ComboBoxItem Content="{DynamicResource ElektricnaEnergija}" />
+                    <ComboBoxItem Content="{DynamicResource Plin}" />
+                </ComboBox>
+
+                <!--  Sekcija: Napomena  -->
+                <TextBlock
+                    Name="TextBlockNapomena"
+                    Margin="10,20,0,10"
+                    FontWeight="Bold"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource Napomena}"
+                    TextWrapping="Wrap" />
+                <TextBox
+                    Name="TextBoxNapomena"
+                    Height="100"
+                    Margin="10,20,30,10"
+                    AcceptsReturn="True"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="{DynamicResource VoziloZadovoljava}"
+                    TextChanged="TextBoxNapomena_TextChanged"
+                    TextWrapping="Wrap" />
+
+                <Button
+                    Name="BtnSubmit"
+                    Margin="10,20,30,10"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    Click="BtnSubmit_Click"
+                    Content="PDF"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

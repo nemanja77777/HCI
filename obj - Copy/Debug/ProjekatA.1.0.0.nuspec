@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ProjekatA</id>
+    <version>1.0.0</version>
+    <authors>ProjekatA</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="MaterialDesignColors" version="5.2.1" exclude="Build,Analyzers" />
+        <dependency id="MaterialDesignThemes" version="5.2.1" exclude="Build,Analyzers" />
+        <dependency id="MySql.Data" version="9.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/resources/en.xaml" buildAction="Content" />
+      <files include="any/net8.0-windows7.0/resources/sr.xaml" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\neman\source\repos\ProjekatA\ProjekatA\bin\Debug\net8.0-windows\ProjekatA.runtimeconfig.json" target="lib\net8.0-windows7.0\ProjekatA.runtimeconfig.json" />
+    <file src="C:\Users\neman\source\repos\ProjekatA\ProjekatA\bin\Debug\net8.0-windows\ProjekatA.dll" target="lib\net8.0-windows7.0\ProjekatA.dll" />
+    <file src="C:\Users\neman\source\repos\ProjekatA\ProjekatA\resources\en.xaml" target="content\resources\en.xaml" />
+    <file src="C:\Users\neman\source\repos\ProjekatA\ProjekatA\resources\en.xaml" target="contentFiles\any\net8.0-windows7.0\resources\en.xaml" />
+    <file src="C:\Users\neman\source\repos\ProjekatA\ProjekatA\resources\sr.xaml" target="content\resources\sr.xaml" />
+    <file src="C:\Users\neman\source\repos\ProjekatA\ProjekatA\resources\sr.xaml" target="contentFiles\any\net8.0-windows7.0\resources\sr.xaml" />
+  </files>
+</package>

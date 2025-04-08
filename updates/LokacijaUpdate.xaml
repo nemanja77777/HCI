@@ -1,0 +1,121 @@
+﻿<Window
+    x:Class="ProjekatA.updates.LokacijaUpdate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Izmjeni Lokaciju"
+    Width="400"
+    Height="290"
+    Background="{DynamicResource Pozadina1Brush}"
+    MouseDown="TopPanel_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Grid>
+        <Grid
+            Name="TopPanel"
+            Height="40"
+            VerticalAlignment="Top"
+            Background="{DynamicResource Pozadina2Brush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Margin="10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Foreground="{DynamicResource TekstBrush}"
+                Text="{DynamicResource IzmjenaLokacije}" />
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MinimizeButton_Click"
+                    Content="_"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MaximizeButton_Click"
+                    Content="□"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="CloseButton_Click"
+                    Content="X"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Grid>
+
+        <Border
+            Width="350"
+            Margin="0,50,0,10"
+            Padding="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Background="{DynamicResource Pozadina2Brush}"
+            BorderBrush="{DynamicResource RuboviBrush}"
+            BorderThickness="2"
+            CornerRadius="10">
+            <StackPanel>
+                <Label Content="{DynamicResource Adresa}" Foreground="White" />
+                <TextBox
+                    Name="AdresaTextBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="Podrazumijevana vrijednost" />
+
+                <Label Content="{DynamicResource Grad}" Foreground="White" />
+                <TextBox
+                    Name="GradTextBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="Podrazumijevana vrijednost" />
+
+                <Label Content="{DynamicResource Drzava}" Foreground="White" />
+                <TextBox
+                    Name="DrzavaTextBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="Podrazumijevana vrijednost" />
+
+                <Button
+                    Name="IzmjeniButton"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Click="IzmjeniButton_Click"
+                    Content="{DynamicResource IzmjeniLokaciju}"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,118 @@
+﻿<Window
+    x:Class="ProjekatA.updates.AdministratorUpdate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Izmjeni administratora"
+    Width="400"
+    Height="260"
+    Background="{DynamicResource Pozadina1Brush}"
+    MouseDown="TopPanel_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Grid>
+        <Grid
+            Name="TopPanel"
+            Height="40"
+            VerticalAlignment="Top"
+            Background="{DynamicResource Pozadina2Brush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Margin="10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Foreground="{DynamicResource TekstBrush}"
+                Text="{DynamicResource IzmjenaAdministratora}" />
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MinimizeButton_Click"
+                    Content="_"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MaximizeButton_Click"
+                    Content="□"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="CloseButton_Click"
+                    Content="X"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Grid>
+
+        <Border
+            Width="380"
+            Margin="10,50,10,10"
+            Padding="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="{DynamicResource Pozadina2Brush}"
+            BorderBrush="{DynamicResource RuboviBrush}"
+            BorderThickness="2"
+            CornerRadius="10">
+            <StackPanel>
+                <Label
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource DostupanNalogKorisnickoime}"
+                    Foreground="White" />
+                <ComboBox
+                    Name="ImenaComboBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource RuboviBrush}"
+                    ItemsSource="{Binding KorisnickaImena}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding IzabranoKorisnickoIme, Mode=TwoWay}" />
+                <Label
+                    Margin="0,0,0,10"
+                    Content="{DynamicResource Location}"
+                    Foreground="White" />
+                <ComboBox
+                    Name="LokacijeComboBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource RuboviBrush}"
+                    ItemsSource="{Binding Lokacije}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding IzabranaLokacija, Mode=TwoWay}" />
+                <Button
+                    Name="IzmjeniButton"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Click="IzmjeniButton_Click"
+                    Content="{DynamicResource IzmjeniAdministratora}"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

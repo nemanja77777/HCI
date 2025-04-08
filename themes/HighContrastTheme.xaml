@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="Pozadine2">#000000</Color>
+    <!--  Potpuno crna pozadina  -->
+    <Color x:Key="Pozadina1">#8000FF</Color>
+    <!--  Jarko žuta za maksimalni kontrast  -->
+    <Color x:Key="Rubovi">#00A000</Color>
+    <!--  Jarko crvena za rubove  -->
+    <Color x:Key="Tekst">#FFFFFF</Color>
+    <!--  Bela boja za tekst na crnoj pozadini  -->
+
+    <SolidColorBrush x:Key="Pozadina2Brush" Color="{StaticResource Pozadine2}" />
+    <SolidColorBrush x:Key="Pozadina1Brush" Color="{StaticResource Pozadina1}" />
+    <SolidColorBrush x:Key="RuboviBrush" Color="{StaticResource Rubovi}" />
+    <SolidColorBrush x:Key="TekstBrush" Color="{StaticResource Tekst}" />
+</ResourceDictionary>

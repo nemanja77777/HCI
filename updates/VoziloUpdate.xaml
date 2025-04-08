@@ -1,0 +1,135 @@
+﻿<Window
+    x:Class="ProjekatA.updates.VoziloUpdate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Izmeni Vozilo"
+    Width="400"
+    Height="350"
+    Background="{DynamicResource Pozadina1Brush}"
+    MouseDown="TopPanel_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Grid>
+        <Grid
+            Name="TopPanel"
+            Height="40"
+            VerticalAlignment="Top"
+            Background="{DynamicResource Pozadina2Brush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Margin="10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Foreground="{DynamicResource TekstBrush}"
+                Text="{DynamicResource IzmjenaVozila}" />
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MinimizeButton_Click"
+                    Content="_"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MaximizeButton_Click"
+                    Content="□"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="CloseButton_Click"
+                    Content="X"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Grid>
+
+        <Border
+            Width="350"
+            Margin="0,50,0,10"
+            Padding="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Background="{DynamicResource Pozadina2Brush}"
+            BorderBrush="{DynamicResource RuboviBrush}"
+            BorderThickness="2"
+            CornerRadius="10">
+            <StackPanel>
+                <Label Content="{DynamicResource VrstaRegistracije}" Foreground="White" />
+                <TextBox
+                    Name="VrstaRegistracijeTextBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="Putnicko vozilo" />
+
+                <Label Content="{DynamicResource Model}" Foreground="White" />
+                <TextBox
+                    Name="ModelTextBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Text="Opel Astra" />
+
+                <Label Content="{DynamicResource DatumProizvodnje}" Foreground="White" />
+                <DatePicker
+                    Name="DatumProizvodnjeDatePicker"
+                    Margin="0,0,0,10"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource RuboviBrush}"
+                    SelectedDate="2005-06-15" />
+
+                <Label Content="{DynamicResource KlijentKorisnickoIme}" Foreground="White" />
+                <ComboBox
+                    Name="MYCOMBOBOX"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource RuboviBrush}"
+                    ItemsSource="{Binding KorisnickaImena}"
+                    SelectedIndex="0"
+                    SelectedItem="{Binding IzabranoKorisnickoIme, Mode=TwoWay}" />
+
+                <Button
+                    Name="IzmjeniButton"
+                    Height="20"
+                    Margin="0,0,0,10"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Click="IzmjeniButton_Click"
+                    Content="{DynamicResource IzmjeniVozilo}"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

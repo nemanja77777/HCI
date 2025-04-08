@@ -1,0 +1,117 @@
+﻿<Window
+    x:Class="ProjekatA.creates.NalogCreate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Kreiranje naloga"
+    Width="400"
+    Height="350"
+    Background="{DynamicResource Pozadina1Brush}"
+    MouseDown="TopPanel_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Grid>
+        <Grid
+            Name="TopPanel"
+            Height="40"
+            VerticalAlignment="Top"
+            Background="{DynamicResource Pozadina2Brush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Margin="10,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="13"
+                Foreground="{DynamicResource TekstBrush}"
+                Text="{DynamicResource KreiranjeNaloga}" />
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MinimizeButton_Click"
+                    Content="_"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="MaximizeButton_Click"
+                    Content="□"
+                    Foreground="{DynamicResource TekstBrush}" />
+                <Button
+                    Width="30"
+                    Height="30"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="Transparent"
+                    Click="CloseButton_Click"
+                    Content="X"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Grid>
+
+        <Border
+            Width="350"
+            Margin="0,50,0,10"
+            Padding="20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            Background="{DynamicResource Pozadina2Brush}"
+            BorderBrush="{DynamicResource RuboviBrush}"
+            BorderThickness="2"
+            CornerRadius="10">
+            <StackPanel Margin="0,10,0,10" VerticalAlignment="Center">
+                <Label
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource Username}"
+                    Foreground="White" />
+                <TextBox
+                    Name="KorisnickoImeTextBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <Label
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Center"
+                    Content="{DynamicResource Password}"
+                    Foreground="White" />
+                <PasswordBox
+                    Name="SifraPasswordBox"
+                    Margin="0,0,0,10"
+                    HorizontalAlignment="Stretch"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Foreground="{DynamicResource TekstBrush}" />
+
+                <Button
+                    Name="KreirajButton"
+                    Margin="0,10,0,0"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    BorderBrush="{DynamicResource RuboviBrush}"
+                    BorderThickness="2"
+                    Click="KreirajButton_Click"
+                    Content="{DynamicResource KreirajNalog}"
+                    Foreground="{DynamicResource TekstBrush}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

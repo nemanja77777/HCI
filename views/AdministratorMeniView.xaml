@@ -1,0 +1,160 @@
+﻿<Window
+    x:Class="ProjekatA.views.AdministratorMeniView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Administrator Meni"
+    Width="800"
+    Height="400"
+    Foreground="{DynamicResource TekstBrush}"
+    MouseDown="TopPanel_MouseDown"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <!--  Grid sa dve vrste  -->
+    <Grid>
+        <!--  Prva vrsta (dugmadi za minimizaciju, maksimizaciju i zatvaranje)  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+
+
+        </Grid.RowDefinitions>
+
+        <!--  Gornja vrsta (dugmadi)  -->
+        <Border BorderBrush="{DynamicResource RuboviBrush}" BorderThickness="0,0,0,2">
+            <!--  Debljina border-a od 2 piksela  -->
+
+            <Grid
+                Grid.Row="0"
+                HorizontalAlignment="Stretch"
+                Background="{DynamicResource Pozadina1Brush}">
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    Background="{DynamicResource Pozadina1Brush}"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="10,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="13"
+                        Foreground="{DynamicResource TekstBrush}"
+                        Text="{DynamicResource Title2}" />
+
+                </StackPanel>
+                <StackPanel
+                    HorizontalAlignment="Right"
+                    Background="{DynamicResource PozadinaBrush}"
+                    Orientation="Horizontal">
+
+                    <!--  Minimize Button  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Background="{DynamicResource Pozadina2Brush}"
+                        BorderBrush="Transparent"
+                        Click="MinimizeButton_Click"
+                        Content="_"
+                        Foreground="{DynamicResource TekstBrush}" />
+
+                    <!--  Maximize Button  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Background="{DynamicResource Pozadina2Brush}"
+                        BorderBrush="Transparent"
+                        Click="MaximizeButton_Click"
+                        Content="□"
+                        Foreground="{DynamicResource TekstBrush}" />
+
+                    <!--  Close Button  -->
+                    <Button
+                        Width="30"
+                        Height="30"
+                        Background="{DynamicResource Pozadina2Brush}"
+                        BorderBrush="Transparent"
+                        Click="CloseButton_Click"
+                        Content="X"
+                        Foreground="{DynamicResource TekstBrush}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+
+        <!--  Donja vrsta (meni sa 8 stavki)  -->
+        <Grid Grid.Row="1">
+            <!--  Meni sa 8 stavki  -->
+            <Menu
+                Height="30"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                Background="{DynamicResource Pozadina2Brush}">
+                <MenuItem
+                    x:Name="Opcija1MenuItem"
+                    Click="Vozilo_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Vehicle}"
+                    SubmenuOpened="MenuItem_SubmenuOpened" />
+                <MenuItem
+                    Click="NalogKlijent_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Account}" />
+                <MenuItem
+                    Click="Zaposleni_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Employee}" />
+                <MenuItem
+                    Click="Administrator_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Administrator}" />
+                <MenuItem
+                    Click="TehnickiPregled_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource TehnicalInspection}" />
+                <MenuItem
+                    Click="Lokacija_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Location}" />
+                <MenuItem
+                    Click="Izvjestaj_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Report}" />
+                <MenuItem
+                    Click="Klijent_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Client}" />
+                <MenuItem
+                    Click="TehnickiPregled_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource TehnickiPregled}" />
+                <MenuItem
+                    Click="Kalendar_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Kalendar}" />
+                <MenuItem
+                    Click="PDF_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="PDF" />
+                <MenuItem
+                    Click="Login_Click"
+                    Foreground="{DynamicResource TekstBrush}"
+                    Header="{DynamicResource Title}" />
+            </Menu>
+        </Grid>
+
+        <!--  Frame za učitavanje različitih stranica  -->
+        <Frame
+            Name="MainFrame"
+            Grid.Row="2"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Background="{DynamicResource Pozadina2Brush}"
+            BorderBrush="{DynamicResource RuboviBrush}"
+            BorderThickness="0,2,0,2"
+            NavigationUIVisibility="Hidden" />
+
+
+    </Grid>
+</Window>
